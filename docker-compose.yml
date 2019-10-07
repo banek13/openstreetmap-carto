@@ -21,6 +21,7 @@ services:
       dockerfile: Dockerfile.db
     volumes:
       - ../openstreetmap-data:/openstreetmap-carto
+      - ../openstreetmap-data/postgres:/var/lib/postgresql/
     ports:
       - "127.0.0.1:6432:5432"
     environment:
