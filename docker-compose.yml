@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/openstreetmap-carto
+      - ./openstreetmap-data:/openstreetmap-carto
     depends_on:
       - db
     ports:
@@ -30,14 +30,14 @@ services:
       context: .
       dockerfile: Dockerfile.import
     volumes:
-      - .:/openstreetmap-carto
+      - ./openstreetmap-data:/openstreetmap-carto
     depends_on:
       - db
     environment:
       - PGHOST=db
       - PGUSER=postgres
-      - PG_WORK_MEM
-      - PG_MAINTENANCE_WORK_MEM
+      - PG_WORK_MEM=400MB
+      - PG_MAINTENANCE_WORK_MEM=10GB
       - OSM2PGSQL_CACHE
       - OSM2PGSQL_NUMPROC
       - OSM2PGSQL_DATAFILE
