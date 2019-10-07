@@ -18,4 +18,4 @@ ADD openstreetmap-carto.style /
 RUN mkdir -p /openstreetmap-carto
 WORKDIR /openstreetmap-carto
 
-CMD sh scripts/docker-startup.sh import
+CMD sh ./scripts/docker-startup.sh import
