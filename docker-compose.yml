@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ../openstreetmap-data:/openstreetmap-carto
+      - .:/openstreetmap-carto
     depends_on:
       - db
     ports:
@@ -19,6 +19,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.db
+    volumes:
+      - ../openstreetmap-data:/openstreetmap-carto
     ports:
       - "127.0.0.1:6432:5432"
     environment:
@@ -30,7 +32,7 @@ services:
       context: .
       dockerfile: Dockerfile.import
     volumes:
-      - ../openstreetmap-data:/openstreetmap-carto
+      - .:/openstreetmap-carto
     depends_on:
       - db
     environment:
