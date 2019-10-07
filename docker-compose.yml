@@ -22,8 +22,8 @@ services:
     ports:
       - "127.0.0.1:6432:5432"
     environment:
-      - PG_WORK_MEM
-      - PG_MAINTENANCE_WORK_MEM
+      - PG_WORK_MEM=100MB
+      - PG_MAINTENANCE_WORK_MEM=10GB
   import:
     image: import:v1
     build:
@@ -36,7 +36,7 @@ services:
     environment:
       - PGHOST=db
       - PGUSER=postgres
-      - PG_WORK_MEM=400MB
+      - PG_WORK_MEM=4000MB
       - PG_MAINTENANCE_WORK_MEM=10GB
       - OSM2PGSQL_CACHE
       - OSM2PGSQL_NUMPROC
