@@ -1,3 +1,5 @@
 *
 !scripts/tune-postgis.sh
+!scripts/update-postgis.sh
+!scripts/postgis.sh
 !openstreetmap-carto.style

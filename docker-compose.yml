@@ -23,7 +23,7 @@ services:
       shm_size: '10g'
     shm_size: '10g'
     volumes:
-      - ../openstreetmap-data:/openstreetmap-carto
+#      - ../openstreetmap-data:/openstreetmap-carto
       - ../openstreetmap-data/postgres:/var/lib/postgresql
       - ../openstreetmap-fonts:/usr/local/share/fonts
     ports:
