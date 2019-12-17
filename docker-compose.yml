@@ -1,4 +1,4 @@
-version: '2'
+version: '3.5'
 services:
   kosmtik:
     image: kosmtik:v1
@@ -19,6 +19,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.db
+      shm_size: '10g'
+    shm_size: '10g'
     volumes:
       - ../openstreetmap-data:/openstreetmap-carto
       - ../openstreetmap-data/postgres:/var/lib/postgresql/
@@ -32,6 +34,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.import
+      shm_size: '10g'
+    shm_size: '10g'
     volumes:
       - .:/openstreetmap-carto
     depends_on:
