@@ -36,6 +36,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.import
+      shm_size: '10g'
     shm_size: '10g'
     volumes:
       - .:/openstreetmap-carto
