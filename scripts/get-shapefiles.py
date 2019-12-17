@@ -121,7 +121,7 @@ def download_file(
                 if subprocess.call(
                     ["curl", "-R", "-L", "-o", file_name, url],
                         stderr=subprocess.STDOUT) != 0:
-                    sys.exit("\n\n   'curl' error: download failed.\n")
+                    sys.exit("\n\n   'curl' error: download failed.\n" + "filename: " + file_name + " url: " + url + "\n")
             sys.stdout.flush()
 
         u = urllib2.urlopen(url)

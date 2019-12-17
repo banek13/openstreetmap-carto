@@ -4,7 +4,9 @@ FROM ubuntu:bionic
 RUN apt-get update && apt-get install --no-install-recommends -y \
     ca-certificates curl gnupg postgresql-client python fonts-hanazono \
     fonts-noto-cjk fonts-noto-hinted fonts-noto-unhinted mapnik-utils \
-    nodejs npm ttf-unifont unzip && rm -rf /var/lib/apt/lists/*
+    nodejs npm ttf-unifont fonts-dejavu-core unzip && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get install unifont && rm -rf /var/lib/apt/lists/*
 
 # Kosmtik with plugins, forcing prefix to /usr because bionic sets
 # npm prefix to /usr/local, which breaks the install
@@ -25,5 +27,5 @@ RUN kosmtik plugins --install kosmtik-overpass-layer \
 RUN mkdir -p /openstreetmap-carto
 WORKDIR /openstreetmap-carto
 
-USER 1000
+#USER 1000
 CMD sh scripts/docker-startup.sh kosmtik
